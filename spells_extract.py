@@ -7,9 +7,20 @@ sauce = urllib.request.urlopen("http://harrypotter.wikia.com/wiki/List_of_spells
 
 soup = bs.BeautifulSoup(sauce, 'lxml')
 
-for span in soup.find_all('span', class_="mw-headline"):
-    print(span.get_text())
+# for span in soup.find_all('span', class_="mw-headline"):
+#     print(span.get_text())
+#
+# for div in soup.find_all('div', class_ = 'tabber'):
+#     print(div)
+#     print(div.get_text())
 
-for div in soup.find_all('div', class_ = 'tabber'):
+main_content = soup.find('div', class_ ='tabber')
+#print(main_content)
 
-    print(div.get_text())
+titles = main_content.find_all('span', class_= 'mw-headline')
+body = main_content.find_all('dl')
+for title, body in zip(titles, body):
+    print(title.text)
+    print(body.text)
+# for span in main_content.find_all('span', class_= 'mw-headline'):
+#     print(span.get_text())
