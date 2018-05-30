@@ -23,7 +23,7 @@ for title, body in zip(titles, body):
     #print(title.text)
     type = re.findall(r'^Type:.*', str(body.text))
     pronounciation = re.findall(r'Pronunciation:.*', body.text)
-    print(pronounciation)
+    print(title.get_text(), '\n', pronounciation)
 #    print(h[0])
 #    if len(h)>0:
 #         print(re.sub(r'Type: \b'," ",h[0]))
